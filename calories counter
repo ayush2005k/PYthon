@@ -1,0 +1,37 @@
+# Calories Counter
+
+calories_log = []
+
+def add_food(item, calories):
+    entry = {"item": item, "calories": calories}
+    calories_log.append(entry)
+    print(f"Added: {item} - {calories} calories")
+
+def view_log():
+    print("\nCalories Log:")
+    total_calories = 0
+    for entry in calories_log:
+        print(f"- {entry['item']}: {entry['calories']} calories")
+        total_calories += entry['calories']
+    print(f"Total Calories: {total_calories} calories\n")
+
+def main():
+    while True:
+        print("1. Add Food")
+        print("2. View Log")
+        print("3. Exit")
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            item = input("Enter food item: ")
+            calories = int(input("Enter calories: "))
+            add_food(item, calories)
+        elif choice == "2":
+            view_log()
+        elif choice == "3":
+            break
+        else:
+            print("Invalid choice, please try again.")
+
+if __name__ == "__main__":
+    main()
